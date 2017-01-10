@@ -11,12 +11,24 @@ function getWeather(lat, lon) {
 var generateWeather = function(item) {
 	var $location = $(".location");
 	var $temp = $(".temp");
-
+	var $degree = $(".degree");
 	$location.html(item.name + ", " + item.sys.country);
-	var fahr = Math.floor((item.main.temp * 9 / 5) - 459.67);
-    var cels = Math.floor(item.main.temp - 273.15);
+	var fahr = ((item.main.temp * 9 / 5) - 459.67).toFixed(0);
+    var cels = (item.main.temp - 273.15).toFixed(0);
+	$temp.html(fahr + "&deg");
 
-	$temp.html(fahr);
+	$degree.click(function(e) {
+		// e.preventDefault();
+		console.log(e.target.value);
+		if(e.target.value == "F") {
+			e.target.value = "C";
+			$temp.html(cels + "&deg");			
+		} else {
+			e.target.value = "F";
+			$temp.html(fahr + "&deg");		
+		}
+	})
+
 
 }
 
