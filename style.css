@@ -1,0 +1,13 @@
+body {
+	background-image: url("http://exchangedownloads.smarttech.com/public/content/c7/c7b7d2f6-0e68-41bc-b320-063ae2783f69/previews/medium/0001.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.app {
+    margin-top: 10em;
+    text-align: center;
+    border: 10px solid gray;
+    margin-left: 31px;
+    margin-right: 31px;
+}

@@ -12,13 +12,19 @@ var generateWeather = function(item) {
 	var $location = $(".location");
 	var $temp = $(".temp");
 	var $degree = $(".degree");
+	var $cloud = $(".cloud");
+	var $weatherImg = $(".weatherImg");
 	$location.html(item.name + ", " + item.sys.country);
 	var fahr = ((item.main.temp * 9 / 5) - 459.67).toFixed(0);
     var cels = (item.main.temp - 273.15).toFixed(0);
+    var urlImg = "http://openweathermap.org/img/w/" + item.weather[0].icon + ".png";
 	$temp.html(fahr + "&deg");
 
+	$cloud.html(item.weather[0].description);
+	$weatherImg.attr("src", urlImg);
+
 	$degree.click(function(e) {
-		// e.preventDefault();
+		e.preventDefault();
 		console.log(e.target.value);
 		if(e.target.value == "F") {
 			e.target.value = "C";
@@ -27,7 +33,7 @@ var generateWeather = function(item) {
 			e.target.value = "F";
 			$temp.html(fahr + "&deg");		
 		}
-	})
+	});
 
 
 }
